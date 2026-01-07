@@ -4,7 +4,7 @@ import {
     Backend_skill,
     DevTools,
     Frontend_skill,
-	libraries,
+    libraries,
 } from "@/constants";
 import React from "react";
 import SkillDataProvider from "../sub/SkillDataProvider";
@@ -18,12 +18,14 @@ const Skills = () => {
         <section
             id="skills"
             className="flex flex-col items-center justify-center gap-3 h-fit relative overflow-hidden py-20"
-            style={{ transform: "scale(0.9" }}
+            style={{ transform: "scale(0.9)" }}
         >
             <SkillText />
 
             <div className="flex flex-col items-center justify-center w-[95%] gap-4">
+                {/* Frontend & Backend */}
                 <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
+                    {/* Frontend */}
                     <div className="w-full lg:w-1/2 h-full">
                         <InView triggerOnce={false}>
                             {({ inView, ref }) => (
@@ -32,20 +34,21 @@ const Skills = () => {
                                     initial="hidden"
                                     animate={inView ? "visible" : "hidden"}
                                     variants={slideInFromLeft(0.5)}
-                                    className="rounded-md text-[white] w-full my-auto py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
+                                    className="rounded-md text-white w-full my-auto py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
                                 >
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 text-2xl font-bold">
-                                        Frontend{" "}
+                                        Frontend
                                     </span>
                                     <br />
                                     <div className="flex flex-row justify-around flex-wrap my-4 gap-5 items-center">
-                                        {Frontend_skill.map((image, index) => (
+                                        {Frontend_skill.map((skill, index) => (
                                             <SkillDataProvider
                                                 key={index}
-                                                src={image.Image}
-                                                width={image.width}
-                                                height={image.height}
+                                                src={skill.Image}
+                                                width={skill.width}
+                                                height={skill.height}
                                                 index={index}
+                                                skillName={skill.skill_name}
                                             />
                                         ))}
                                     </div>
@@ -53,6 +56,8 @@ const Skills = () => {
                             )}
                         </InView>
                     </div>
+
+                    {/* Backend */}
                     <div className="w-full lg:w-1/2 h-full">
                         <InView triggerOnce={false}>
                             {({ inView, ref }) => (
@@ -61,20 +66,21 @@ const Skills = () => {
                                     initial="hidden"
                                     animate={inView ? "visible" : "hidden"}
                                     variants={slideInFromRight(0.5)}
-                                    className="rounded-md text-[white] w-full h-full py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
+                                    className="rounded-md text-white w-full h-full py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
                                 >
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 text-2xl font-bold">
-                                        Backend{" "}
+                                        Backend
                                     </span>
                                     <br />
                                     <div className="flex flex-row justify-around flex-wrap my-4 gap-5 items-center">
-                                        {Backend_skill.map((image, index) => (
+                                        {Backend_skill.map((skill, index) => (
                                             <SkillDataProvider
                                                 key={index}
-                                                src={image.Image}
-                                                width={image.width}
-                                                height={image.height}
+                                                src={skill.Image}
+                                                width={skill.width}
+                                                height={skill.height}
                                                 index={index}
+                                                skillName={skill.skill_name}
                                             />
                                         ))}
                                     </div>
@@ -83,7 +89,10 @@ const Skills = () => {
                         </InView>
                     </div>
                 </div>
+
+                {/* Dev Tools & Libraries */}
                 <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4">
+                    {/* Dev Tools */}
                     <div className="w-full lg:w-1/2 h-full">
                         <InView triggerOnce={false}>
                             {({ inView, ref }) => (
@@ -92,20 +101,21 @@ const Skills = () => {
                                     initial="hidden"
                                     animate={inView ? "visible" : "hidden"}
                                     variants={slideInFromLeft(0.5)}
-                                    className="rounded-md text-[white] w-full my-auto py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
+                                    className="rounded-md text-white w-full my-auto py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
                                 >
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 text-2xl font-bold">
-                                        Dev Tools{" "}
+                                        Dev Tools
                                     </span>
                                     <br />
                                     <div className="flex flex-row justify-around flex-wrap my-4 gap-5 items-center">
-                                        {DevTools.map((image, index) => (
+                                        {DevTools.map((skill, index) => (
                                             <SkillDataProvider
                                                 key={index}
-                                                src={image.Image}
-                                                width={image.width}
-                                                height={image.height}
+                                                src={skill.Image}
+                                                width={skill.width}
+                                                height={skill.height}
                                                 index={index}
+                                                skillName={skill.skill_name}
                                             />
                                         ))}
                                     </div>
@@ -113,6 +123,8 @@ const Skills = () => {
                             )}
                         </InView>
                     </div>
+
+                    {/* Libraries */}
                     <div className="w-full lg:w-1/2 h-full">
                         <InView triggerOnce={false}>
                             {({ inView, ref }) => (
@@ -121,20 +133,21 @@ const Skills = () => {
                                     initial="hidden"
                                     animate={inView ? "visible" : "hidden"}
                                     variants={slideInFromRight(0.5)}
-                                    className="rounded-md text-[white] w-full h-full py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
+                                    className="rounded-md text-white w-full h-full py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9]"
                                 >
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 text-2xl font-bold">
-                                        Libraries{" "}
+                                        Libraries
                                     </span>
                                     <br />
                                     <div className="flex flex-row justify-around flex-wrap my-4 gap-5 items-center">
-                                        {libraries.map((image, index) => (
+                                        {libraries.map((skill, index) => (
                                             <SkillDataProvider
                                                 key={index}
-                                                src={image.Image}
-                                                width={image.width}
-                                                height={image.height}
+                                                src={skill.Image}
+                                                width={skill.width}
+                                                height={skill.height}
                                                 index={index}
+                                                skillName={skill.skill_name}
                                             />
                                         ))}
                                     </div>
@@ -145,6 +158,7 @@ const Skills = () => {
                 </div>
             </div>
 
+            {/* Background video */}
             <div className="hidden md:block w-full h-full absolute top-24">
                 <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
                     <video
